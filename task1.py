@@ -26,7 +26,7 @@ def task1():
     file_read = r'.\Data\input\title.akas.tsv.gz'
     from_csv_df = spark_session.read.csv(file_read, header=True, nullValue='null', sep=r'\t', schema=schema_title_akas)
     from_csv_df_task1 = from_csv_df.select("title", "region").where(f.col("region") == "UA")
-    from_csv_df_task1.show(100, truncate=False)
-    #file_write = r'.\Data\output\task01'
-    #from_csv_df_task1.write.csv(file_write, header=True, mode="overwrite")
+    #from_csv_df_task1.show(100, truncate=False)
+    file_write = r'.\Data\output\task01'
+    from_csv_df_task1.write.csv(file_write, header=True, mode="overwrite")
     return 0

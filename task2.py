@@ -27,7 +27,7 @@ def task2():
     from_csv_df = spark_session.read.csv(file_read, header=True, nullValue='null', sep=r'\t', schema=schema_name_basics)
     from_csv_df_task2 = from_csv_df.select("primaryName", "birthYear")\
         .filter((f.col("birthYear") < 1900) & (f.col("birthYear") > 1799))
-    from_csv_df_task2.show(100, truncate=False)
-    #file_write = r'.\Data\output\task02'
-    #from_csv_df_task2.write.csv(file_write, header=True, mode="overwrite")
+    #from_csv_df_task2.show(100, truncate=False)
+    file_write = r'.\Data\output\task02'
+    from_csv_df_task2.write.csv(file_write, header=True, mode="overwrite")
     return 0

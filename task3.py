@@ -29,7 +29,7 @@ def task3():
         file_read_basics, header=True, nullValue='null', sep=r'\t', schema=schema_title_basics)
     from_csv_df_task3 = from_csv_df.select("titleType", "originalTitle", "runtimeMinutes")\
         .filter((f.col("runtimeMinutes") > 120) & (f.col("titleType").isin("movie", "tvMovie")))
-    from_csv_df_task3.show(200, truncate=False)
-    #file_write = r'.\Data\output\task03'
-    #from_csv_df_task3.write.csv(file_write, header=True, mode="overwrite")
+    #from_csv_df_task3.show(200, truncate=False)
+    file_write = r'.\Data\output\task03'
+    from_csv_df_task3.write.csv(file_write, header=True, mode="overwrite")
     return 0

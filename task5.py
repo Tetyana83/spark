@@ -67,7 +67,7 @@ def task5():
     temp_dfmin = temp_df4.filter(f.col("adult_per_region") == region_min).orderBy(f.col("averageRating").desc()).limit(100)
     temp_dfmax = temp_df4.filter(f.col("adult_per_region") == region_max).orderBy(f.col("averageRating").desc()).limit(100)
     from_csv_df_task8 = temp_dfmin.union(temp_dfmax)
-    from_csv_df_task8.show(200, truncate=False)
-    #file_write = r'.\Data\output\task08'
-    #from_csv_df_task8.write.csv(file_write, header=True, mode="overwrite")
+    #from_csv_df_task8.show(200, truncate=False)
+    file_write = r'.\Data\output\task08'
+    from_csv_df_task8.write.csv(file_write, header=True, mode="overwrite")
     return 0

@@ -69,7 +69,7 @@ def task4():
     df_temp04 = from_csv_title_df.select("tconst", "primaryTitle")
     from_csv_df_task4 = df_temp03.join(df_temp04, "tconst")\
         .select("primaryName", "characters", "primaryTitle").orderBy("primaryName")
-    from_csv_df_task4.show(100, truncate=False)
-    #file_write = r'.\Data\output\task04'
-    #from_csv_df_task4.write.csv(file_write, header=True, mode="overwrite")
+    #from_csv_df_task4.show(100, truncate=False)
+    file_write = r'.\Data\output\task04'
+    from_csv_df_task4.write.csv(file_write, header=True, mode="overwrite")
     return 0

@@ -42,7 +42,7 @@ def task8():
     temp_df3 = temp_df1.join(temp_df2, "tconst")
     window = (Window.orderBy(f.desc("genres"), f.desc("averageRating")).partitionBy("genres"))
     from_csv_df_task8 = temp_df3.withColumn("Rating_genre", f.row_number().over(window)).where(f.col("Rating_genre") <= 10)
-    from_csv_df_task8.show(100)
-    #file_write = r'.\Data\output\task08'
-    #from_csv_df_task8.write.csv(file_write, header=True, mode="overwrite")
+    #from_csv_df_task8.show(100)
+    file_write = r'.\Data\output\task08'
+    from_csv_df_task8.write.csv(file_write, header=True, mode="overwrite")
     return 0

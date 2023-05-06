@@ -46,7 +46,7 @@ def task6():
     temp_df1 = temp_df1.withColumnRenamed("parentTconst", "tconst")
     temp_df2 = from_csv_title_df.select("tconst", "titleType", "originalTitle").filter(f.col("titleType").isin("tvSeries", "Series"))
     from_csv_df_task6 = temp_df1.join(temp_df2, "tconst").select("originalTitle", "titleType", "count").orderBy(f.desc("count"))
-    from_csv_df_task6.show(100)
-    #file_write = r'.\Data\output\task06'
-    #from_csv_df_task6.write.csv(file_write, header=True, mode="overwrite")
+    #from_csv_df_task6.show(100)
+    file_write = r'.\Data\output\task06'
+    from_csv_df_task6.write.csv(file_write, header=True, mode="overwrite")
     return 0

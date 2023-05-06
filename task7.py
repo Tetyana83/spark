@@ -41,7 +41,7 @@ def task7():
         .withColumn("N_decade", f.floor(f.col("startYear") / 10).cast(t.IntegerType()))
     window = Window.partitionBy("N_decade").orderBy(f.desc("averageRating"))
     from_csv_df_task7 = temp_df3.withColumn("Rating_decade", f.row_number().over(window)).where(f.col("Rating_decade") <= 10)
-    from_csv_df_task7.show(100, truncate=False)
-    #file_write = r'.\Data\output\task07'
-    #from_csv_df_task7.write.csv(file_write, header=True, mode="overwrite")
+    #from_csv_df_task7.show(100, truncate=False)
+    file_write = r'.\Data\output\task07'
+    from_csv_df_task7.write.csv(file_write, header=True, mode="overwrite")
     return 0
